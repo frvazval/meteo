@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima en tu Ciudad</title>
+    <link rel="stylesheet" href="css/meteo.css">
+    <script defer src="js/meteo.js"></script>    
+</head>
+<body onload="obtenerClima(); muestraFechayHora()">
+    <div class="container responsive-layout">
+        <h1>Datos Meteorológicos</h1>
+        <p id="fechaHora"></p>
+        <div  class="form-group">
+            <div>
+                <label for="idioma">Elige el idioma</label>
+                <select id="idioma" onchange="obtenerClima()">
+                    <option value="es">Español</option>
+                    <option value="ca">Catalán</option>
+                    <option value="gl">Gallego</option>
+                    <option value="eu">Vasco</option>
+                    <option value="en">Inglés</option>
+                    <option value="fr">Francés</option>
+                </select>
+            </div>
+            <div>
+                <label for="ciudad">Escribe una ciudad</label>
+                <input type="text" id="ciudad" placeholder="Introduce una ciudad" value="Barcelona">
+            </div>
+            <button onclick="obtenerClima()">Buscar</button>
+        </div>
+        
+        <div id="weather-info" class="weather-layout">
+            <div class="info">
+                <h2 id="nombreCiudad"></h2>
+                <p id="temperatura"></p>
+                <p id="presion"></p>
+                <p id="humedad"></p>
+                <p id="descripcion"></p>
+            </div>
+            <div id="icono"></div>
+        </div>
+        <div id="forecast-info" class="forecast-layout">
+            <h2>Previsión del Tiempo</h2>
+            <div id="forecast-container"></div>
+        </div>
+    </div>        
+</body>
+</html>
